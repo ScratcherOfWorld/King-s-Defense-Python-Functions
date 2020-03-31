@@ -1,11 +1,11 @@
 # King's Defense Server Functions
 
-Welcome to the king's defense server code ropositery. Here we will create python code to be the server for the [Scratch project (https://scratch.mit.edu/studios/5805912/)](https://scratch.mit.edu/studios/5805912/). The server will run on a raspberry pi.
+Welcome to the King's Defense server code ropositery. Here we will create Python code to be the server for the [Scratch project (https://scratch.mit.edu/studios/5805912/)](https://scratch.mit.edu/studios/5805912/). The server will run on a Raspberry Pi 3B+.
 
 Setup
 ------
 1. Install Python v3.8.
-1. Install [PyAutoGUI (https://pypi.org/project/PyAutoGUI/)](https://pypi.org/project/PyAutoGUI/). This will be used to let the python code interact with the scratch project by moving the mouse and typing.
+1. Install [PyAutoGUI (https://pypi.org/project/PyAutoGUI/)](https://pypi.org/project/PyAutoGUI/). This will be used to let the Python code interact with the scratch project by moving the mouse and typing.
 1. Clone the repositery by copying the https or ssh key in GitHub.
 
 Contributing
