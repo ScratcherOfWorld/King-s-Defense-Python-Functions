@@ -1,3 +1,4 @@
+import data_formatter
 class PlayerStaticData:
     def __init__(self, username):
         self.username = username
@@ -19,3 +20,12 @@ class PlayerStaticData:
         self.coins=dictionary_in["Coins"]
         self.points=dictionary_in["Points"]
         self.cards=dictionary_in["Cards"]
+
+    def get_values(self):
+        string = ''.join([data_formatter.make_text_set_length(str(self.gems),6),
+                          data_formatter.make_text_set_length(str(self.coins),6),
+                          data_formatter.make_text_set_length(str(self.points),6),
+                          ''.join(self.cards)])
+        return string
+                          
+                    

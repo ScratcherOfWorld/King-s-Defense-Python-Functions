@@ -1,9 +1,12 @@
 import urllib.request
+import pyautogui
+import data_formatter
 import json
 #Type message
-def insert_in_enterbox_scratch(string):
-    pyautogui.typewrite(string)
-
+def server_send(user, string):
+    print("To",user,"Body",string)
+    pyautogui.typewrite(data_formatter.encode(user)+"99"+string)
+    pyautogui.press('enter')
 
 #Get last 40 changes in cloud data
 def get_clouddata(project_id):

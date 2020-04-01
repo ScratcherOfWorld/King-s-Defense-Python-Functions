@@ -6,7 +6,6 @@ Setup
 ------
 1. Install Python v3.8.
 1. Install [PyAutoGUI (https://pypi.org/project/PyAutoGUI/)](https://pypi.org/project/PyAutoGUI/). This allows the Python code interact with the scratch project by moving the mouse and typing.
-1. Install [PyYAML (https://pypi.org/project/PyYAML/)](https://pypi.org/project/PyYAML/). This is used to read and write to local files and save server information.
 1. Clone the repositery by copying the https or ssh key in GitHub.
 
 Contributing

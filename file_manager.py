@@ -33,7 +33,6 @@ def setup_files(init_rep):
     users = [player_data.PlayerStaticData("") for user in dict_users]
     for user_index in range (len(users)):
         users[user_index].from_dict(dict_users[user_index])
-    print(users)
     return (last_values_cloud, users)
 
 def save_files(init_rep, last_values_cloud, users):
