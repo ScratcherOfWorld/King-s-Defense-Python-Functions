@@ -14,4 +14,5 @@ def get_clouddata(project_id):
 
 def get_new_followers(username):
     #We could either look at the profile page or the messages.
+    #I think it should be better in the profile page (scratcherofworld)
     pass
