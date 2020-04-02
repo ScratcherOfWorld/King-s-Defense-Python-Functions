@@ -3,9 +3,9 @@ import pyautogui
 import data_formatter
 import json
 #Type message
-def server_send(user, string):
+def server_send(user, message_type, string):
     print("To",user,"Body",string)
-    pyautogui.typewrite(data_formatter.encode(user)+"99"+string)
+    pyautogui.typewrite(data_formatter.encode(user)+"99"+message_type+string)
     pyautogui.press('enter')
 
 #Get last 40 changes in cloud data

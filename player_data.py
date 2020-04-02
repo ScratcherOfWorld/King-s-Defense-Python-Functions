@@ -27,5 +27,9 @@ class PlayerStaticData:
                           data_formatter.make_text_set_length(str(self.points),6),
                           ''.join(self.cards)])
         return string
+
+    def buy_card(self, card_id):
+        self.cards.append(card_id)
+        #TODO: Remove appropriate values
                           
                     
