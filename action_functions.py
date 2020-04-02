@@ -59,9 +59,13 @@ def actions(activities, users):
     for activity in activities:
         if activity['name'] == "☁ user" and activity['verb']=="set_var":#If it is actually a request
             user_index = get_user(activity, users)
+            if len(activity['value'])<1:
+                print("The request had no value")
+                return
             request = activity['value'][0]
             #We find functions the function here based on the first digit of the value.
             func = actions_on_recieve.get(int(request))
             if func==None:
-                raise Exception("Error when handling request, the specified action was not found. This should never happen. Request: ",activity)
+                print("The server had no function to handle the request.")
+                return
             func (users, user_index, activity) #Call the function
