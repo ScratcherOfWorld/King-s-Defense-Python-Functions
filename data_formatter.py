@@ -1,4 +1,4 @@
-characters = list('''abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 ~!@#$%^&*()-_=+\|;:'",<.>/?éêàçùß€''')
+characters = list('''abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890 ~!@#$%^&*()-_=+\|;:'",<.>/?éêàçùß€ ?''')
 
 #Used for formating send paramaters.
 def make_text_set_length(text, length):
