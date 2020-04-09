@@ -2,12 +2,26 @@ import urllib.request
 import pyautogui
 import data_formatter
 import json
-#Type message
-def server_send(user, message_type, string):
-    print("To",user,"Body",string)
-    pyautogui.typewrite(data_formatter.encode(user)+"99"+message_type+string)
-    pyautogui.press('enter')
+import time
 
+server_messages = []
+time_between_messages = 1
+
+#Type message if the other message has had time to be read.
+def server_check_send(last_sent_time):
+    if server_messages:                             #If there are any messages
+        if time.time()-last_sent_time>time_between_messages:    #And the specified time has been waited
+            pyautogui.typewrite(server_messages[0])
+            pyautogui.press('enter')
+            del server_messages[0]
+            return time.time()
+    return last_sent_time
+
+#This ensures a value is not immediatly wirtten then overwritten.
+def server_buffer_send(user, message_type, string):
+    print("To",user,"Body",string)
+    server_messages.append(data_formatter.encode(user)+"99"+message_type+string)
+    
 #Get last 40 changes in cloud data
 def get_clouddata(project_id):
     page = urllib.request.urlopen('https://clouddata.scratch.mit.edu/logs?projectid=' + project_id + '&limit=40&offset=0')

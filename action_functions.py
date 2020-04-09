@@ -4,7 +4,7 @@ import scratch_interface
 
 def get_point_values(users, user_index, activity, value_remaining):
     print("Returning get point values for: ",activity['user'])
-    scratch_interface.server_send(activity['user'],'0',users[user_index].get_values())
+    scratch_interface.server_buffer_send(activity['user'],'0',users[user_index].get_values())
 
 def start_pairing(users, user_index, activity, value_remaining):
     pass
@@ -54,8 +54,6 @@ def get_user(activity, users):
         print("New user: "+activity['user'])
         user_index = len(users)
         users.append(player_data.PlayerStaticData(activity['user']))
-    else:
-        users[user_index].gems+=1 #Add one gem every time you play. (only temporery)
     return user_index
 
 #Perform actions based on the new requests

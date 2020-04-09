@@ -1,4 +1,5 @@
 import data_formatter
+import constant_data
 class PlayerStaticData:
     def __init__(self, username):
         self.username = username
@@ -29,7 +30,9 @@ class PlayerStaticData:
         return string
 
     def buy_card(self, card_id):
-        self.cards.append(card_id)
-        #TODO: Remove appropriate values
-                          
-                    
+        if int(card_id) < len(constant_data.cards):
+            self.cards.append(card_id)
+            #Remove payment
+            self.coins -= constant_data.cards[int(card_id)].coins_cost
+            self.gems -= constant_data.cards[int(card_id)].gems_cost
+
