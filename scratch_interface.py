@@ -4,12 +4,11 @@ import data_formatter
 import json
 import time
 
-server_messages = []
 time_between_messages = 1
 
 #Type message if the other message has had time to be read.
-def server_check_send(last_sent_time):
-    if server_messages:                             #If there are any messages
+def server_check_send(server_messages, last_sent_time):
+    if len(server_messages)>0:                             #If there are any messages
         if time.time()-last_sent_time>time_between_messages:    #And the specified time has been waited
             pyautogui.typewrite(server_messages[0])
             pyautogui.press('enter')
@@ -17,8 +16,8 @@ def server_check_send(last_sent_time):
             return time.time()
     return last_sent_time
 
-#This ensures a value is not immediatly wirtten then overwritten.
-def server_buffer_send(user, message_type, string):
+#This ensures a value is not immediatly written then overwritten.
+def server_buffer_send(server_messages, user, message_type, string):
     print("To",user,"Body",string)
     server_messages.append(data_formatter.encode(user)+"99"+message_type+string)
     

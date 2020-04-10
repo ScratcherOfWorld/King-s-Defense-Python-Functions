@@ -32,7 +32,7 @@ class PlayerStaticData:
     def buy_card(self, card_id):
         if int(card_id) < len(constant_data.cards):
             self.cards.append(card_id)
-            #Remove payment
+            #Payment
             self.coins -= constant_data.cards[int(card_id)].coins_cost
             self.gems -= constant_data.cards[int(card_id)].gems_cost
 

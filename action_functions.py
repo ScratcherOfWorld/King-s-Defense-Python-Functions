@@ -2,30 +2,31 @@ import player_data
 import scratch_interface
 
 
-def get_point_values(users, user_index, activity, value_remaining):
+def get_point_values(server_messages, users, user_index, activity, value_remaining):
     print("Returning get point values for: ",activity['user'])
-    scratch_interface.server_buffer_send(activity['user'],'0',users[user_index].get_values())
+    scratch_interface.server_buffer_send(server_messages, activity['user'],'0',users[user_index].get_values())
+    return server_messages    
 
-def start_pairing(users, user_index, activity, value_remaining):
+def start_pairing(server_messages, users, user_index, activity, value_remaining):
     pass
 
-def end_pairing(users, user_index, activity, value_remaining):
+def end_pairing(server_messages, users, user_index, activity, value_remaining):
     pass
 
-def buy_card(users, user_index, activity, value_remaining):
+def buy_card(server_messages, users, user_index, activity, value_remaining):
     if len(value_remaining)<2:
         return
     card_id = value_remaining[:2]
     print(activity['user'],"bought",card_id)
     users[user_index].buy_card(card_id)
 
-def send_message(users, user_index, activity, value_remaining):
+def send_message(server_messages, users, user_index, activity, value_remaining):
     pass
 
-def get_message_with_index(users, user_index, activity, value_remaining):
+def get_message_with_index(server_messages, users, user_index, activity, value_remaining):
     pass
 
-def get_message_count(users, user_index, activity, value_remaining):
+def get_message_count(server_messages, users, user_index, activity, value_remaining):
     pass
     
 actions_on_recieve = {
@@ -57,7 +58,7 @@ def get_user(activity, users):
     return user_index
 
 #Perform actions based on the new requests
-def actions(activities, users):
+def actions(server_messages, activities, users):
     for activity in activities:
         if activity['name'] == "☁ user" and activity['verb']=="set_var":#If it is actually a request
             user_index = get_user(activity, users)
@@ -70,4 +71,4 @@ def actions(activities, users):
             if func==None:
                 print("The server had no function to handle the request.")
                 return
-            func (users, user_index, activity, activity['value'][1:]) #Call the function
+            func (server_messages, users, user_index, activity, activity['value'][1:]) #Call the function
