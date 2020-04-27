@@ -11,6 +11,7 @@ def make_text_set_length(text, length):
 
 #Convert string to decimal
 def encode(string):
+    string = string.lower() #Fix error because capital letters for usernames are not in the list
     return ''.join([make_text_set_length(str(characters.index(character)),2) for character in string])
 
 #Decimal to string
